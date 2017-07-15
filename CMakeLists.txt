@@ -32,4 +32,4 @@ target_link_libraries(${PROJECT_NAME} ${LIBRARIES})
 
 # Install
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-install(DIRECTORY include/engine/ DESTINATION include/z2engine)
+install(DIRECTORY include/z2engine/ DESTINATION include/z2engine)
