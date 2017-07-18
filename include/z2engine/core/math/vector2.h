@@ -1,6 +1,8 @@
 #ifndef _Z2ENGINE_CORE_MATH_VECTOR2_H_
 #define _Z2ENGINE_CORE_MATH_VECTOR2_H_
 
+#include <math.h>
+
 template<typename T>
 class Vector2
 {
@@ -13,6 +15,13 @@ public:
 
     inline T getY(void) const { return m_y; }
     inline void setY(T y) { m_y = y; }
+
+    inline double getMagnitude(void) { return sqrt(m_x * m_x + m_y * m_y); }
+    inline void setMagnitude(double magnitude)
+        { double mag = magnitude / getMagnitude(); m_x *= mag; m_y *= mag; }
+
+    inline void normalize(void)
+        { double mag = getMagnitude(); m_x /= mag; m_y /= mag; }
 
     Vector2<T> &operator+=(const Vector2<T> &rhs);
     Vector2<T> operator+(const Vector2<T> &rhs) const;
